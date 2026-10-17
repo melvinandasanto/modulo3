@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="es-HN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101828">
+  <meta name="description" content="Agentes de IA por voz y texto que acercan orientación sobre crédito y ahorro a emprendedores de Honduras, incluso en zonas rurales.">
+  <title>FinTech CA — Finanzas digitales para emprendedores de Honduras</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css">
+  <style>
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 5.5rem;
+    }
+
+    body {
+      padding-top: 80px;
+    }
+
+    .site-navbar {
+      background: linear-gradient(90deg, #101828, #0dcaf0);
+      box-shadow: 0 0.5rem 1.5rem rgba(16, 24, 40, 0.18);
+      z-index: 1030;
+    }
+
+    .navbar-collapse {
+      padding-block: 0.5rem;
+    }
+
+    .hero-section {
+      padding: clamp(3.5rem, 8vw, 7rem) 0;
+      color: #fff;
+      background:
+        radial-gradient(circle at 80% 20%, rgba(13, 202, 240, 0.2), transparent 35%),
+        linear-gradient(135deg, #101828, #173b5e);
+    }
+
+    .hero-section h1 {
+      max-width: 14ch;
+      line-height: 1.08;
+    }
+
+    .text-gradient {
+      color: #70e1f5;
+    }
+
+    .hero-copy {
+      max-width: 38rem;
+      color: #dbeafe;
+    }
+
+    .hero-visual {
+      position: relative;
+    }
+
+    .hero-visual > img {
+      min-height: 20rem;
+      max-height: 34rem;
+      object-fit: cover;
+      box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.25);
+    }
+
+    .hero-note {
+      position: absolute;
+      right: 1rem;
+      bottom: 1rem;
+      left: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 1rem;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 1rem;
+      color: #fff;
+      background: rgba(16, 24, 40, 0.82);
+      backdrop-filter: blur(8px);
+    }
+
+    .hero-note-icon {
+      display: grid;
+      width: 2.5rem;
+      height: 2.5rem;
+      flex: 0 0 auto;
+      place-items: center;
+      border-radius: 50%;
+      color: #101828;
+      background: #70e1f5;
+    }
+
+    .breadcrumb {
+      --bs-breadcrumb-divider: "›";
+      margin-bottom: 1.5rem;
+    }
+
+    .breadcrumb a {
+      color: #0d6efd;
+      text-decoration: none;
+    }
+
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+
+    .services-table {
+      min-width: 50rem;
+    }
+
+    .services-table .oi {
+      color: #0d6efd;
+      vertical-align: -0.08em;
+    }
+
+    .service-product-card {
+      overflow: hidden;
+      border: 1px solid #e5eaf1;
+      border-radius: 1rem;
+      box-shadow: 0 0.75rem 1.75rem rgba(16, 24, 40, 0.07);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .service-product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 1rem 2.25rem rgba(16, 24, 40, 0.13);
+    }
+
+    .service-product-card .card-img-top {
+      height: 13rem;
+      object-fit: cover;
+    }
+
+    .service-product-card .card-footer {
+      border-top: 1px solid #e5eaf1;
+      background: #fff;
+    }
+
+    .contact-section {
+      background: linear-gradient(135deg, #eef7ff, #f8fafc);
+    }
+
+    .contact-card {
+      border: 1px solid #e5eaf1;
+      border-radius: 1rem;
+      box-shadow: 0 1rem 2.5rem rgba(16, 24, 40, 0.08);
+    }
+
+    .form-label {
+      font-weight: 600;
+      color: #26364f;
+    }
+
+    .form-control,
+    .form-select {
+      min-height: 2.9rem;
+      border-color: #cbd5e1;
+    }
+
+    .form-control:focus,
+    .form-select:focus {
+      border-color: #0d6efd;
+      box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.15);
+    }
+
+    .site-footer {
+      background-color: #101828;
+      color: #fff;
+    }
+
+    .benefits-list {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .benefits-list .list-group-item {
+      padding: 1.25rem 1.4rem;
+      border: 0;
+      border-radius: 1rem;
+      background-color: #0d6efd;
+      color: #fff;
+      box-shadow: 0 0.75rem 1.5rem rgba(13, 110, 253, 0.16);
+    }
+
+    .benefits-list strong {
+      color: #fff;
+    }
+
+    .benefits-list small {
+      color: #dbeafe !important;
+    }
+
+    .benefits-list .benefit-icon {
+      background-color: rgba(255, 255, 255, 0.16);
+      color: #fff;
+    }
+
+    .services-section {
+      background-color: #f8fafc;
+    }
+
+    .workspace-section {
+      background-color: #eef7ff;
+    }
+
+    .benefit-icon {
+      display: grid;
+      flex: 0 0 auto;
+      width: 2.5rem;
+      height: 2.5rem;
+      place-items: center;
+      border-radius: 0.8rem;
+      background-color: rgba(13, 202, 240, 0.12);
+      color: #0dcaf0;
+      font-size: 1.35rem;
+      transition: color 0.3s ease, background-color 0.3s ease;
+    }
+
+    .panel {
+      padding: 2rem;
+      border: 1px solid #26364f;
+      border-radius: 1rem;
+      background-color: #101828;
+      color: #e5edf8;
+      transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .panel h3 {
+      color: #fff;
+    }
+
+    .panel p {
+      color: #c3cfdf !important;
+    }
+
+    .panel:hover {
+      transform: translateY(-5px);
+      background: linear-gradient(135deg, #0d6efd, #0dcaf0);
+      color: #fff;
+      box-shadow: 0 1rem 2rem rgba(13, 110, 253, 0.22);
+    }
+
+    .panel:hover p,
+    .panel:hover h3 {
+      color: #fff !important;
+    }
+
+    .panel:hover .benefit-icon {
+      background-color: #fff;
+      color: #0d6efd;
+    }
+
+    .security-card {
+      border-color: rgba(13, 202, 240, 0.45);
+      border-left: 4px solid #0dcaf0;
+      background:
+        radial-gradient(circle at 100% 0, rgba(13, 202, 240, 0.16), transparent 45%),
+        #101828;
+    }
+
+    .security-card .benefit-icon {
+      background-color: rgba(13, 202, 240, 0.2);
+      color: #70e1f5;
+    }
+
+    .security-card:hover .benefit-icon {
+      background-color: #fff;
+      color: #0d6efd;
+    }
+
+    @media (max-width: 575.98px) {
+      .panel {
+        padding: 1.4rem;
+      }
+
+      .hero-visual > img {
+        min-height: 16rem;
+      }
+
+      .hero-note {
+        right: 0.65rem;
+        bottom: 0.65rem;
+        left: 0.65rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top site-navbar">
+    <div class="container">
+      <a class="navbar-brand fw-bold text-white" href="#inicio"><span class="brand-mark"></span> FinTech CA</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navegacion" aria-controls="navegacion" aria-expanded="false" aria-label="Abrir menú de navegación">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navegacion">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3">
+          <li class="nav-item"><a class="btn btn-sm btn-primary rounded-pill px-4 ms-lg-2" href="#inicio">Inicio</a></li>
+          <li class="nav-item"><a class="btn btn-sm btn-primary rounded-pill px-4 ms-lg-2" href="#servicios">Servicios</a></li>
+          <li class="nav-item"><a class="btn btn-sm btn-primary rounded-pill px-4 ms-lg-2" href="#comparativa">Comparativa</a></li>
+          <li class="nav-item"><a class="btn btn-sm btn-primary rounded-pill px-4 ms-lg-2" href="#nosotros">Acerca de nosotros</a></li>
+          <li class="nav-item"><a class="btn btn-sm btn-primary rounded-pill px-4 ms-lg-2" href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main id="inicio">
+    <section class="hero-section">
+      <div class="container">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-6">
+            <h1 class="display-4 fw-bold mt-3 ">Más claridad para las finanzas de tu negocio en <span class="text-gradient">Honduras.</span></h1>
+            <p class="lead hero-copy mt-4">Un ecosistema de agentes de IA que ayuda a emprendedores hondureños a organizar sus ahorros y conocer opciones de crédito, por voz o texto y con palabras cotidianas.</p>
+            <div class="d-flex flex-column flex-sm-row gap-3 mt-4">
+              <a class="btn btn-primary btn-lg rounded-pill px-4" href="#servicios">Conoce los servicios <span aria-hidden="true">→</span></a>
+              <a class="btn btn-outline-light btn-lg rounded-pill px-4" href="#nosotros">Así trabajamos</a>
+            </div>
+            <p class="small text-white-50 mt-3 mb-0">En español hondureño · Pensado para zonas rurales · Sin conocimientos técnicos</p>
+          </div>
+          <div class="col-lg-6">
+            <figure class="hero-visual mb-0">
+              <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="Emprendedora utilizando una terminal de pago en su negocio" class="img-fluid w-100 rounded-4">
+              <figcaption class="hero-note">
+                <span class="hero-note-icon" aria-hidden="true">✦</span>
+                <span><strong>Una conversación sencilla</strong><small class="d-block">«Quiero ahorrar para surtir mi pulpería»</small></span>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="benefits-section py-5" id="beneficios">
+      <div class="container py-lg-4">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-5">
+            <span class="eyebrow eyebrow-dark">HECHO PARA LA VIDA REAL</span>
+            <h2 class="display-6 fw-bold mt-3">Herramientas financieras que <span class="text-primary">hablan tu idioma.</span></h2>
+            <p class="text-secondary mt-3 mb-0">La experiencia toma en cuenta las comunidades, los negocios y las condiciones de conectividad de Honduras.</p>
+          </div>
+          <div class="col-lg-7">
+            <ul class="list-group benefits-list">
+              <li class="list-group-item d-flex gap-3 align-items-start">
+                <span class="benefit-icon" aria-hidden="true">◉</span>
+                <span><strong>Habla o escribe con naturalidad</strong><small class="d-block text-secondary mt-1">Pregunta en voz o texto y usa expresiones hondureñas. El agente busca comprender lo que necesitas en tus propias palabras.</small></span>
+              </li>
+              <li class="list-group-item d-flex gap-3 align-items-start">
+                <span class="benefit-icon" aria-hidden="true">↗</span>
+                <span><strong>Explora crédito y organiza tus ahorros</strong><small class="d-block text-secondary mt-1">Recibe orientación clara para conocer opciones de financiamiento y planificar metas de ahorro en lempiras.</small></span>
+              </li>
+              <li class="list-group-item d-flex gap-3 align-items-start">
+                <span class="benefit-icon" aria-hidden="true">⌁</span>
+                <span><strong>Pensado para baja latencia</strong><small class="d-block text-secondary mt-1">Una arquitectura ligera busca responder con agilidad incluso cuando la conexión en comunidades rurales de Honduras es limitada.</small></span>
+              </li>
+              <li class="list-group-item d-flex gap-3 align-items-start">
+                <span class="benefit-icon" aria-hidden="true">＋</span>
+                <span><strong>Más inclusión, menos barreras</strong><small class="d-block text-secondary mt-1">Accede a herramientas financieras digitales sin necesitar experiencia técnica avanzada.</small></span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="services-section py-5" id="servicios">
+      <div class="container py-lg-4">
+        <nav aria-label="Migas de pan - Servicios">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#inicio">Inicio</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Servicios</li>
+          </ol>
+        </nav>
+        <div class="text-center section-heading mb-5">
+          <span class="eyebrow eyebrow-dark">SERVICIOS PARA TU DÍA A DÍA</span>
+          <h2 class="fw-bold mt-2">Herramientas sencillas, oportunidades más claras</h2>
+          <p class="text-secondary mb-0">Servicios informativos para emprendedores de Honduras, disponibles desde tu teléfono y a tu ritmo.</p>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <article class="card service-product-card h-100">
+              <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&amp;fit=crop&amp;w=900&amp;q=80" class="card-img-top" alt="Persona conversando por videollamada desde una computadora" loading="lazy">
+              <div class="card-body">
+                <span class="benefit-icon mb-3" aria-hidden="true">◉</span>
+                <h3 class="h5 card-title">Asistente por voz y texto</h3>
+                <p class="card-text text-secondary mb-0">Haz preguntas por voz o texto con expresiones hondureñas. Recibe orientación clara sin tener que aprender a usar herramientas complicadas.</p>
+              </div>
+              <div class="card-footer d-flex justify-content-between align-items-center gap-2">
+                <span class="small text-secondary">Atención sencilla</span>
+                <a class="btn btn-sm btn-outline-primary rounded-pill" href="#contacto">Consultar</a>
+              </div>
+            </article>
+          </div>
+          <div class="col-md-4">
+            <article class="card service-product-card h-100">
+              <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&amp;fit=crop&amp;w=900&amp;q=80" class="card-img-top" alt="Persona revisando documentos y calculando sus finanzas" loading="lazy">
+              <div class="card-body">
+                <span class="benefit-icon mb-3" aria-hidden="true">↗</span>
+                <h3 class="h5 card-title">Orientación para crédito</h3>
+                <p class="card-text text-secondary mb-0">Conoce opciones de financiamiento y los pasos para solicitarlo. La decisión y aprobación corresponden a la institución financiera.</p>
+              </div>
+              <div class="card-footer d-flex justify-content-between align-items-center gap-2">
+                <span class="small text-secondary">Información clara</span>
+                <a class="btn btn-sm btn-outline-primary rounded-pill" href="#contacto">Consultar</a>
+              </div>
+            </article>
+          </div>
+          <div class="col-md-4">
+            <article class="card service-product-card h-100">
+              <img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&amp;fit=crop&amp;w=900&amp;q=80" class="card-img-top" alt="Ahorros organizados en un frasco de vidrio" loading="lazy">
+              <div class="card-body">
+                <span class="benefit-icon mb-3" aria-hidden="true">◎</span>
+                <h3 class="h5 card-title">Gestión de ahorros</h3>
+                <p class="card-text text-secondary mb-0">Organiza metas de ahorro en lempiras y consulta información de manera simple, con apoyo pensado para pequeños emprendimientos.</p>
+              </div>
+              <div class="card-footer d-flex justify-content-between align-items-center gap-2">
+                <span class="small text-secondary">Metas en lempiras</span>
+                <a class="btn btn-sm btn-outline-primary rounded-pill" href="#contacto">Consultar</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-5" id="comparativa">
+      <div class="container py-lg-4">
+        <nav aria-label="Migas de pan - Comparativa">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#inicio">Inicio</a></li>
+            <li class="breadcrumb-item"><a href="#servicios">Servicios</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Comparativa</li>
+          </ol>
+        </nav>
+        <div class="section-heading mb-4">
+          <span class="eyebrow eyebrow-dark">COMPARA LOS SERVICIOS</span>
+          <h2 class="fw-bold mt-2">Encuentra la orientación que necesitas</h2>
+          <p class="text-secondary mb-0">Desliza horizontalmente la tabla en pantallas pequeñas para consultar todas las columnas.</p>
+        </div>
+        <div class="table-responsive rounded-4 border" tabindex="0" aria-label="Tabla desplazable de servicios">
+          <table class="table table-hover align-middle mb-0 services-table">
+            <thead class="table-primary">
+              <tr>
+                <th scope="col">Servicio</th>
+                <th scope="col">Canal</th>
+                <th scope="col">Te ayuda a</th>
+                <th scope="col">Ideal para</th>
+                <th scope="col">Disponible</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row"><span class="oi oi-chat me-2" aria-hidden="true"></span>Asistente</th>
+                <td>Voz y texto</td>
+                <td>Resolver dudas cotidianas</td>
+                <td>Consultas rápidas</td>
+                <td><span class="oi oi-check text-success me-1" aria-hidden="true"></span>Sí</td>
+              </tr>
+              <tr>
+                <th scope="row"><span class="oi oi-credit-card me-2" aria-hidden="true"></span>Orientación para crédito</th>
+                <td>Texto</td>
+                <td>Explorar opciones y requisitos</td>
+                <td>Emprendimientos</td>
+                <td><span class="oi oi-check text-success me-1" aria-hidden="true"></span>Sí</td>
+              </tr>
+              <tr>
+                <th scope="row"><span class="oi oi-dollar me-2" aria-hidden="true"></span>Gestión de ahorros</th>
+                <td>Voz y texto</td>
+                <td>Planificar metas en lempiras</td>
+                <td>Presupuestos y metas</td>
+                <td><span class="oi oi-check text-success me-1" aria-hidden="true"></span>Sí</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="workspace-section py-5" id="nosotros">
+      <div class="container py-lg-4">
+        <nav aria-label="Migas de pan - Acerca de nosotros">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#inicio">Inicio</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Acerca de nosotros</li>
+          </ol>
+        </nav>
+        <div class="text-center section-heading mb-5">
+          <span class="eyebrow eyebrow-dark">ACERCA DE NOSOTROS</span>
+          <h2 class="fw-bold mt-2">Tecnología cercana, construida para incluir</h2>
+          <p class="text-secondary mb-0">Esta página presenta una experiencia pensada para emprendedores de Honduras. El proyecto tiene sede centroamericana y adapta su tecnología a las necesidades de cada comunidad.</p>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <article class="panel h-100">
+              <span class="benefit-icon mb-3" aria-hidden="true">☏</span>
+              <h3 class="h5">1. Te escucha y comprende</h3>
+              <p class="text-secondary mb-0">El agente de conversación recibe tu mensaje por voz o texto y busca comprender el contexto y las expresiones hondureñas.</p>
+            </article>
+          </div>
+          <div class="col-md-4">
+            <article class="panel h-100">
+              <span class="benefit-icon mb-3" aria-hidden="true">⇄</span>
+              <h3 class="h5">2. Coordina especialistas</h3>
+              <p class="text-secondary mb-0">Agentes especializados colaboran para orientar sobre ahorro o crédito, con respuestas claras y pasos fáciles de seguir.</p>
+            </article>
+          </div>
+          <div class="col-md-4" id="verificacion">
+            <article class="panel security-card h-100">
+              <span class="benefit-icon mb-3" aria-hidden="true">✓</span>
+              <h3 class="h5">3. Verifica antes de actuar</h3>
+              <p class="text-secondary mb-0">Una capa de seguridad revisa las solicitudes y confirma las acciones importantes para ayudar a proteger cada operación.</p>
+            </article>
+          </div>
+          <div class="col-md-4" id="seguridad">
+            <article class="panel security-card h-100">
+              <span class="benefit-icon mb-3" aria-hidden="true">✓</span>
+              <h3 class="h5">4. Seguridad por diseño</h3>
+              <p class="text-secondary mb-0">La coordinación multi-agente separa tareas, aplica verificaciones y mantiene a la persona en control de sus decisiones. La aprobación final de créditos y cualquier transacción dependen de las instituciones y procesos financieros correspondientes.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <section class="contact-section py-5" id="contacto">
+    <div class="container py-lg-4">
+      <nav aria-label="Migas de pan - Contacto">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#inicio">Inicio</a></li>
+          <li class="breadcrumb-item"><a href="#servicios">Servicios</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Contacto</li>
+        </ol>
+      </nav>
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="text-center mb-4">
+            <span class="eyebrow eyebrow-dark">HABLEMOS</span>
+            <h2 class="fw-bold mt-2">Cuéntanos cómo podemos ayudarte</h2>
+            <p class="text-secondary mb-0">Completa el formulario y se abrirá tu aplicación de correo para enviar la consulta.</p>
+          </div>
+          <div class="card contact-card">
+            <div class="card-body p-4 p-md-5">
+              <form action="mailto:contacto@ejemplo.com" method="post" enctype="text/plain">
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <label class="form-label" for="nombre">Nombre</label>
+                    <input class="form-control" type="text" id="nombre" name="nombre" autocomplete="name" required>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label" for="correo">Correo electrónico</label>
+                    <input class="form-control" type="email" id="correo" name="correo" autocomplete="email" required>
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label" for="servicio">¿Sobre qué servicio quieres consultar?</label>
+                    <select class="form-select" id="servicio" name="servicio" required>
+                      <option value="" selected disabled>Selecciona una opción</option>
+                      <option>Asistente por voz y texto</option>
+                      <option>Orientación para crédito</option>
+                      <option>Gestión de ahorros</option>
+                      <option>Otro tema</option>
+                    </select>
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label" for="comentario">Tu comentario o mensaje</label>
+                    <textarea class="form-control" id="comentario" name="comentario" rows="5" required></textarea>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="autorizacion" name="autorizacion" value="si" required>
+                      <label class="form-check-label" for="autorizacion">Autorizo que me contacten para responder esta consulta.</label>
+                    </div>
+                  </div>
+                  <div class="col-12 d-flex flex-column flex-sm-row align-items-sm-center gap-3 pt-2">
+                    <button class="btn btn-primary rounded-pill px-4" type="submit">Enviar consulta</button>
+                    <span class="small text-secondary">También puedes escribir a <a href="mailto:contacto@ejemplo.com">contacto@ejemplo.com</a>.</span>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer py-4">
+    <div class="container">
+      <div class="row g-4 align-items-start">
+        <div class="col-md-5">
+          <a class="navbar-brand fw-bold mb-2 d-inline-block" href="#inicio"><span class="brand-mark">f.</span> FinTech CA</a>
+          <p class="small mb-0">Iniciativa con sede centroamericana.</p>
+        </div>
+        <div class="col-md-4">
+          <h2 class="h6 text-white">Contacto</h2>
+          <p class="small mb-0">Escríbenos: <a href="mailto:contacto@ejemplo.com">contacto@ejemplo.com</a></p>
+        </div>
+        <div class="col-md-3">
+          <h2 class="h6 text-white">Redes sociales</h2>
+          <ul class="footer-social list-unstyled d-flex flex-wrap gap-3 mb-0">
+            <li><a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+            <li><a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+            <li><a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-top border-secondary mt-4 pt-3 text-center">
+        <p class="small mb-0">© 2026 FinTech CA</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>
