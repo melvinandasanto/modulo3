@@ -36,6 +36,32 @@
         linear-gradient(135deg, #101828, #173b5e);
     }
 
+    .spotlight-carousel {
+      color: #fff;
+      background: #101828;
+    }
+
+    .spotlight-carousel .carousel-item {
+      min-height: 15rem;
+      padding: 3rem 4.5rem;
+      background:
+        radial-gradient(circle at 85% 20%, rgba(13, 202, 240, 0.28), transparent 35%),
+        linear-gradient(135deg, #173b5e, #101828);
+    }
+
+    .spotlight-carousel .carousel-item h2 {
+      max-width: 48rem;
+    }
+
+    .spotlight-carousel .carousel-indicators {
+      margin-bottom: 0.75rem;
+    }
+
+    .spotlight-carousel .carousel-control-prev,
+    .spotlight-carousel .carousel-control-next {
+      width: 3.5rem;
+    }
+
     .hero-section h1 {
       max-width: 14ch;
       line-height: 1.08;
@@ -271,6 +297,16 @@
         padding: 1.4rem;
       }
 
+      .spotlight-carousel .carousel-item {
+        min-height: 17rem;
+        padding: 2rem 3.5rem 3rem;
+      }
+
+      .spotlight-carousel .carousel-control-prev,
+      .spotlight-carousel .carousel-control-next {
+        width: 2.5rem;
+      }
+
       .hero-visual > img {
         min-height: 16rem;
       }
@@ -303,6 +339,45 @@
   </nav>
 
   <main id="inicio">
+    <section class="spotlight-carousel" aria-label="Novedades destacadas">
+      <div id="destacados" class="carousel slide" data-bs-ride="carousel" data-bs-interval="8000">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#destacados" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Mostrar destacado 1"></button>
+          <button type="button" data-bs-target="#destacados" data-bs-slide-to="1" aria-label="Mostrar destacado 2"></button>
+          <button type="button" data-bs-target="#destacados" data-bs-slide-to="2" aria-label="Mostrar destacado 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="container">
+              <span class="text-info fw-semibold">ORIENTACIÓN CERCANA</span>
+              <h2 class="h3 fw-bold mt-2">Resuelve tus dudas financieras con palabras sencillas</h2>
+              <p class="mb-0 text-white-50">Explora opciones de crédito y ahorro pensadas para los negocios de Honduras.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="container">
+              <span class="text-info fw-semibold">METAS DE AHORRO</span>
+              <h2 class="h3 fw-bold mt-2">Organiza tus metas, paso a paso</h2>
+              <p class="mb-0 text-white-50">Planifica en lempiras y encuentra una forma clara de avanzar a tu ritmo.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="container">
+              <span class="text-info fw-semibold">VOZ Y TEXTO</span>
+              <h2 class="h3 fw-bold mt-2">Pregunta como lo harías en una conversación</h2>
+              <p class="mb-0 text-white-50">Una experiencia simple, disponible desde tu teléfono y en tu propio lenguaje.</p>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#destacados" data-bs-slide="prev" aria-label="Destacado anterior">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#destacados" data-bs-slide="next" aria-label="Siguiente destacado">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </button>
+      </div>
+    </section>
+
     <section class="hero-section">
       <div class="container">
         <div class="row align-items-center g-5">
@@ -312,6 +387,7 @@
             <div class="d-flex flex-column flex-sm-row gap-3 mt-4">
               <a class="btn btn-primary btn-lg rounded-pill px-4" href="#servicios">Conoce los servicios <span aria-hidden="true">→</span></a>
               <a class="btn btn-outline-light btn-lg rounded-pill px-4" href="#nosotros">Así trabajamos</a>
+              <button class="btn btn-outline-info btn-lg rounded-pill px-4" type="button" data-bs-toggle="modal" data-bs-target="#registroModal">Déjanos tus datos</button>
             </div>
             <p class="small text-white-50 mt-3 mb-0">En español hondureño · Pensado para zonas rurales · Sin conocimientos técnicos</p>
           </div>
@@ -379,7 +455,7 @@
               <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&amp;fit=crop&amp;w=900&amp;q=80" class="card-img-top" alt="Persona conversando por videollamada desde una computadora" loading="lazy">
               <div class="card-body">
                 <span class="benefit-icon mb-3" aria-hidden="true">◉</span>
-                <h3 class="h5 card-title">Asistente por voz y texto</h3>
+                <h3 class="h5 card-title" tabindex="0" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Pregunta por voz o texto y recibe orientación en lenguaje cotidiano.">Asistente por voz y texto</h3>
                 <p class="card-text text-secondary mb-0">Haz preguntas por voz o texto con expresiones hondureñas. Recibe orientación clara sin tener que aprender a usar herramientas complicadas.</p>
               </div>
               <div class="card-footer d-flex justify-content-between align-items-center gap-2">
@@ -393,7 +469,7 @@
               <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&amp;fit=crop&amp;w=900&amp;q=80" class="card-img-top" alt="Persona revisando documentos y calculando sus finanzas" loading="lazy">
               <div class="card-body">
                 <span class="benefit-icon mb-3" aria-hidden="true">↗</span>
-                <h3 class="h5 card-title">Orientación para crédito</h3>
+                <h3 class="h5 card-title" tabindex="0" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Conoce información general; cada institución define requisitos y aprobación.">Orientación para crédito</h3>
                 <p class="card-text text-secondary mb-0">Conoce opciones de financiamiento y los pasos para solicitarlo. La decisión y aprobación corresponden a la institución financiera.</p>
               </div>
               <div class="card-footer d-flex justify-content-between align-items-center gap-2">
@@ -407,7 +483,7 @@
               <img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&amp;fit=crop&amp;w=900&amp;q=80" class="card-img-top" alt="Ahorros organizados en un frasco de vidrio" loading="lazy">
               <div class="card-body">
                 <span class="benefit-icon mb-3" aria-hidden="true">◎</span>
-                <h3 class="h5 card-title">Gestión de ahorros</h3>
+                <h3 class="h5 card-title" tabindex="0" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Organiza objetivos de ahorro y consulta ideas para planificar en lempiras.">Gestión de ahorros</h3>
                 <p class="card-text text-secondary mb-0">Organiza metas de ahorro en lempiras y consulta información de manera simple, con apoyo pensado para pequeños emprendimientos.</p>
               </div>
               <div class="card-footer d-flex justify-content-between align-items-center gap-2">
@@ -415,6 +491,61 @@
                 <a class="btn btn-sm btn-outline-primary rounded-pill" href="#contacto">Consultar</a>
               </div>
             </article>
+          </div>
+        </div>
+        <div class="mt-5">
+          <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3 mb-3">
+            <div>
+              <h3 class="h4 fw-bold mb-1">Conoce más sobre cada orientación</h3>
+              <p class="text-secondary mb-0">Abre una opción o consulta ambas a la vez.</p>
+            </div>
+            <button class="btn btn-outline-primary rounded-pill align-self-start align-self-md-center" type="button" data-bs-toggle="collapse" data-bs-target=".multi-collapse" aria-controls="creditoDetalle ahorroDetalle" aria-expanded="false">Mostrar/ocultar ambas</button>
+          </div>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <p class="mb-2"><button class="btn btn-primary rounded-pill" type="button" data-bs-toggle="collapse" data-bs-target="#creditoDetalle" aria-expanded="false" aria-controls="creditoDetalle">Orientación para crédito</button></p>
+              <div class="collapse multi-collapse" id="creditoDetalle">
+                <div class="card card-body">Compara información general, prepara tus preguntas y consulta directamente con la institución financiera los requisitos, tasas y condiciones vigentes.</div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <p class="mb-2"><button class="btn btn-primary rounded-pill" type="button" data-bs-toggle="collapse" data-bs-target="#ahorroDetalle" aria-expanded="false" aria-controls="ahorroDetalle">Gestión de ahorros</button></p>
+              <div class="collapse multi-collapse" id="ahorroDetalle">
+                <div class="card card-body">Define una meta, un plazo y una cantidad que puedas apartar. La orientación ayuda a organizar ideas, no sustituye asesoría financiera.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mt-5">
+          <div class="section-heading mb-3">
+            <span class="eyebrow eyebrow-dark">OPCIONES DE ORIENTACIÓN</span>
+            <h3 class="h4 fw-bold mt-2">¿Por dónde quieres empezar?</h3>
+          </div>
+          <div class="accordion" id="opcionesAccordion">
+            <div class="accordion-item">
+              <h4 class="accordion-header" id="opcionCreditoTitulo">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#opcionCredito" aria-expanded="true" aria-controls="opcionCredito">Explorar opciones de crédito</button>
+              </h4>
+              <div id="opcionCredito" class="accordion-collapse collapse show" aria-labelledby="opcionCreditoTitulo" data-bs-parent="#opcionesAccordion">
+                <div class="accordion-body">Revisa información general y prepara una lista de preguntas para la institución financiera. Las condiciones y la aprobación dependen de cada entidad.</div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h4 class="accordion-header" id="opcionAhorroTitulo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#opcionAhorro" aria-expanded="false" aria-controls="opcionAhorro">Planificar una meta de ahorro</button>
+              </h4>
+              <div id="opcionAhorro" class="accordion-collapse collapse" aria-labelledby="opcionAhorroTitulo" data-bs-parent="#opcionesAccordion">
+                <div class="accordion-body">Estima cuánto quieres reunir, define un plazo realista y organiza aportes periódicos de acuerdo con tu presupuesto.</div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h4 class="accordion-header" id="opcionAsistenteTitulo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#opcionAsistente" aria-expanded="false" aria-controls="opcionAsistente">Consultar con el asistente</button>
+              </h4>
+              <div id="opcionAsistente" class="accordion-collapse collapse" aria-labelledby="opcionAsistenteTitulo" data-bs-parent="#opcionesAccordion">
+                <div class="accordion-body">Describe tu duda por voz o texto y recibe orientación inicial en un lenguaje sencillo.</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -434,41 +565,60 @@
           <h2 class="fw-bold mt-2">Encuentra la orientación que necesitas</h2>
           <p class="text-secondary mb-0">Desliza horizontalmente la tabla en pantallas pequeñas para consultar todas las columnas.</p>
         </div>
-        <div class="table-responsive rounded-4 border" tabindex="0" aria-label="Tabla desplazable de servicios">
-          <table class="table table-hover align-middle mb-0 services-table">
-            <thead class="table-primary">
-              <tr>
-                <th scope="col">Servicio</th>
-                <th scope="col">Canal</th>
-                <th scope="col">Te ayuda a</th>
-                <th scope="col">Ideal para</th>
-                <th scope="col">Disponible</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row"><span class="oi oi-chat me-2" aria-hidden="true"></span>Asistente</th>
-                <td>Voz y texto</td>
-                <td>Resolver dudas cotidianas</td>
-                <td>Consultas rápidas</td>
-                <td><span class="oi oi-check text-success me-1" aria-hidden="true"></span>Sí</td>
-              </tr>
-              <tr>
-                <th scope="row"><span class="oi oi-credit-card me-2" aria-hidden="true"></span>Orientación para crédito</th>
-                <td>Texto</td>
-                <td>Explorar opciones y requisitos</td>
-                <td>Emprendimientos</td>
-                <td><span class="oi oi-check text-success me-1" aria-hidden="true"></span>Sí</td>
-              </tr>
-              <tr>
-                <th scope="row"><span class="oi oi-dollar me-2" aria-hidden="true"></span>Gestión de ahorros</th>
-                <td>Voz y texto</td>
-                <td>Planificar metas en lempiras</td>
-                <td>Presupuestos y metas</td>
-                <td><span class="oi oi-check text-success me-1" aria-hidden="true"></span>Sí</td>
-              </tr>
-            </tbody>
-          </table>
+        <ul class="nav nav-pills flex-column flex-sm-row gap-2 mb-3" id="comparativaTabs" role="tablist" aria-label="Vistas de la comparativa">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="tabla-tab" data-bs-toggle="pill" data-bs-target="#tabla-panel" type="button" role="tab" aria-controls="tabla-panel" aria-selected="true">Comparar servicios</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="canales-tab" data-bs-toggle="pill" data-bs-target="#canales-panel" type="button" role="tab" aria-controls="canales-panel" aria-selected="false">Canales disponibles</button>
+          </li>
+        </ul>
+        <div class="tab-content" id="comparativaTabContent">
+          <div class="tab-pane fade show active" id="tabla-panel" role="tabpanel" aria-labelledby="tabla-tab" tabindex="0">
+            <div class="table-responsive rounded-4 border" tabindex="0" aria-label="Tabla desplazable de servicios">
+              <table class="table table-hover align-middle mb-0 services-table">
+                <thead class="table-primary">
+                  <tr>
+                    <th scope="col">Servicio</th>
+                    <th scope="col">Canal</th>
+                    <th scope="col">Te ayuda a</th>
+                    <th scope="col">Ideal para</th>
+                    <th scope="col">Disponible</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row"><span class="oi oi-chat me-2" aria-hidden="true"></span>Asistente</th>
+                    <td>Voz y texto</td>
+                    <td>Resolver dudas cotidianas</td>
+                    <td>Consultas rápidas</td>
+                    <td><span class="oi oi-check text-success me-1" aria-hidden="true"></span>Sí</td>
+                  </tr>
+                  <tr>
+                    <th scope="row"><span class="oi oi-credit-card me-2" aria-hidden="true"></span>Orientación para crédito</th>
+                    <td>Texto</td>
+                    <td>Explorar opciones y requisitos</td>
+                    <td>Emprendimientos</td>
+                    <td><span class="oi oi-check text-success me-1" aria-hidden="true"></span>Sí</td>
+                  </tr>
+                  <tr>
+                    <th scope="row"><span class="oi oi-dollar me-2" aria-hidden="true"></span>Gestión de ahorros</th>
+                    <td>Voz y texto</td>
+                    <td>Planificar metas en lempiras</td>
+                    <td>Presupuestos y metas</td>
+                    <td><span class="oi oi-check text-success me-1" aria-hidden="true"></span>Sí</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="canales-panel" role="tabpanel" aria-labelledby="canales-tab" tabindex="0">
+            <div class="row g-3">
+              <div class="col-md-4"><div class="card card-body h-100"><h3 class="h5">Voz</h3><p class="mb-0">Haz una pregunta hablando de forma natural desde tu teléfono.</p></div></div>
+              <div class="col-md-4"><div class="card card-body h-100"><h3 class="h5">Texto</h3><p class="mb-0">Escribe tu consulta y revisa la orientación a tu propio ritmo.</p></div></div>
+              <div class="col-md-4"><div class="card card-body h-100"><h3 class="h5">Contacto</h3><p class="mb-0">Usa el formulario de contacto para compartir una consulta específica.</p></div></div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -608,6 +758,61 @@
     </div>
   </footer>
 
+  <div class="modal fade" id="registroModal" tabindex="-1" aria-labelledby="registroModalTitulo" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div>
+            <span class="eyebrow eyebrow-dark">SIGAMOS EN CONTACTO</span>
+            <h2 class="modal-title h4 fw-bold mt-1" id="registroModalTitulo">Déjanos tus datos</h2>
+          </div>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <form action="mailto:contacto@ejemplo.com" method="post" enctype="text/plain">
+          <div class="modal-body">
+            <p class="text-secondary">Completa el formulario y se abrirá tu aplicación de correo para enviar la solicitud.</p>
+            <div class="mb-3">
+              <label class="form-label" for="registroNombre">Nombre</label>
+              <input class="form-control" type="text" id="registroNombre" name="nombre" autocomplete="name" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label" for="registroCorreo">Correo electrónico</label>
+              <input class="form-control" type="email" id="registroCorreo" name="correo" autocomplete="email" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label" for="registroInteres">¿Qué te interesa?</label>
+              <select class="form-select" id="registroInteres" name="interes" required>
+                <option value="" selected disabled>Selecciona una opción</option>
+                <option>Asistente por voz y texto</option>
+                <option>Orientación para crédito</option>
+                <option>Gestión de ahorros</option>
+                <option>Recibir información general</option>
+              </select>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="registroAutorizacion" name="autorizacion" value="si" required>
+              <label class="form-check-label" for="registroAutorizacion">Autorizo que me contacten sobre esta solicitud.</label>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-secondary rounded-pill" data-bs-dismiss="modal">Ahora no</button>
+            <button type="submit" class="btn btn-primary rounded-pill">Enviar mis datos</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  <script>
+    document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach((element) => {
+      new bootstrap.Tooltip(element);
+    });
+
+    const destacados = document.querySelector('#destacados');
+    if (destacados) {
+      bootstrap.Carousel.getOrCreateInstance(destacados, { interval: 8000 });
+    }
+  </script>
 </body>
 </html>
